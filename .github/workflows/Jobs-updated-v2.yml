@@ -14,7 +14,10 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
     steps:
       - id: step1
-        run: echo "test=hello" >> $GITHUB_OUTPUT
+        uses: actions/checkout@v3
+      - run: |
+         echo $(gh issue list --label "Incident" --label "Active" --json "url")
+         run: echo "test=hello" >> $GITHUB_OUTPUT
   job2:
     runs-on: ubuntu-latest
     needs: job1
