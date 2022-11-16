@@ -28,4 +28,4 @@ jobs:
     steps:
       - run: |
           MY_STRING="${needs.job1.outputs.output1//'%0A'/$'\n'}"
-          echo "${{MY_STRING}}"
+          echo "${{ MY_STRING }}"
