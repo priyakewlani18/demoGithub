@@ -1,5 +1,4 @@
 name: Multiline Output testing
-
 on:
   workflow_dispatch:
 env:
