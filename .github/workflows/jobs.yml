@@ -1,9 +1,6 @@
-
-name: Jobs Testing
+name: Jobs Testing Output
 
 on:
-  # schedule:
-  #- cron: "0/30 * * * * "
   workflow_dispatch:
 env:
   INCOMING_WEBHOOK_URL: "${{secrets.INCOMING_WEBHOOK_INCIDENT_CHANNEL}}"
