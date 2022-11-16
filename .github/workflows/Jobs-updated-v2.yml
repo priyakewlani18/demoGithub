@@ -19,6 +19,7 @@ jobs:
         run: |
           incident=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')
           incident="${incident//$'\n'/'%0A'}"
+          echo $incident
           echo "test=$incident" >> $GITHUB_OUTPUT
           
   job2:
