@@ -21,6 +21,7 @@ jobs:
           test="${test//'%'/'%25'}"
           test="${test//$'\n'/'%0A'}"
           test="${test//$'\r'/'%0D'}"
+          echo $test
           echo "test=$(test)" >> $GITHUB_OUTPUT
           
   job2:
