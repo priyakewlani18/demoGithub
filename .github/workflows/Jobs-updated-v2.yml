@@ -16,7 +16,6 @@ jobs:
       - id: step1
         uses: actions/checkout@v3
       - run: |
-         echo $(gh issue list --label "Incident" --label "Active" --json "url")
           echo "test=hello" >> $GITHUB_OUTPUT
   job2:
     runs-on: ubuntu-latest
