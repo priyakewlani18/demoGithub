@@ -12,13 +12,10 @@ jobs:
     outputs:
       output1: ${{ steps.step1.outputs.test }}
     steps:
+      - uses: actions/checkout@v2
       - name: create string
         run: |
-          MY_STRING=$(
-          first line
-          second line
-          third line
-          )
+          MY_STRING=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url')
           echo "MY_STRING<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
