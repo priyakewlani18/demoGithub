@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v3
       - run: |
          echo $(gh issue list --label "Incident" --label "Active" --json "url")
-         echo "test=$(gh issue list --label "Incident" --label "Active" --json "url")" >> $GITHUB_OUTPUT
+         echo "test= Hello" >> $GITHUB_OUTPUT
 
   job2:
     runs-on: ubuntu-latest
