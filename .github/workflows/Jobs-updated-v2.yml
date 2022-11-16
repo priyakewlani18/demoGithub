@@ -17,11 +17,11 @@ jobs:
       
       - id: step1
         run: |
-          incidents=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')
-          incidents="${incidents//'%'/'%25'}"
-          incidents="${incidents//$'\n'/'%0A'}"
-          incidents="${incidents//$'\r'/'%0D'}"
-          echo "test=$incidents" >> $GITHUB_OUTPUT
+          test=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')
+          test="${test//'%'/'%25'}"
+          test="${test//$'\n'/'%0A'}"
+          test="${test//$'\r'/'%0D'}"
+          echo "test=$(test)" >> $GITHUB_OUTPUT
           
   job2:
     runs-on: ubuntu-latest
