@@ -18,7 +18,7 @@ jobs:
           MY_STRING=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url'| tr -d '"')
           echo "MY_STRING<<EOF" >> $GITHUB_OUTPUT
           echo "$MY_STRING">> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          #echo "EOF" >> $GITHUB_OUTPUT
         id: my_string
   job2:
     runs-on: ubuntu-latest
