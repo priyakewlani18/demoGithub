@@ -1,3 +1,17 @@
+name: Multiline Output testing
+
+on:
+  workflow_dispatch:
+env:
+  INCOMING_WEBHOOK_URL: "${{secrets.INCOMING_WEBHOOK_INCIDENT_CHANNEL}}"
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
     steps:
       - name: create string
         run: |
