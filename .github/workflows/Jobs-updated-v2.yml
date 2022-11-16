@@ -27,7 +27,5 @@ jobs:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-      - run: |
-          #pk=$(echo ${{needs.job1.outputs.output1 }}| jq '.[] | .url' | tr -d '"') 
-          #echo $pk
+      - run:
           echo ${{needs.job1.outputs.output1 }}
