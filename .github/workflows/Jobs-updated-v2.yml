@@ -27,4 +27,5 @@ jobs:
     needs: job1
     steps:
       - run: |
-         echo "${{needs.job1.outputs.output1}}"
+          MY_STRING="${needs.job1.outputs.output1//'%0A'/$'\n'}"
+          echo "${{MY_STRING}}"
