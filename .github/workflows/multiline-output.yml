@@ -12,12 +12,10 @@ jobs:
     steps:
       - name: create string
         run: |
-          MY_STRING=$(cat << EOF
-          first line
-          second line
-          third line
-          EOF
-          )
+          MY_STRING=
+          "first line\n
+          second line\n
+          third line"
           MY_STRING="${MY_STRING//'%'/'%25'}"
           MY_STRING="${MY_STRING//$'\n'/'%0A'}"
           MY_STRING="${MY_STRING//$'\r'/'%0D'}"
