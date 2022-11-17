@@ -17,7 +17,7 @@ jobs:
       
       - id: step1
         run: |
-          incident=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')
+          incident=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url')
           incident="${incident//'%'/'%25'}"
           incident="${incident//$'\n'/'%0A'}"
           incident="${incident//$'\r'/'%0D'}"
