@@ -27,4 +27,5 @@ jobs:
     needs: job1
     steps:
       - run: |
-            echo ${{needs.job1.outputs.output1}} 
+            incident=$(needs.job1.outputs.output1)
+            echo $incident
