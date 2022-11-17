@@ -28,4 +28,4 @@ jobs:
     steps:
       - run: |
             incident=${{ needs.job1.outputs.output1 }}
-            echo $incident
+            echo "The string is: ${{ needs.job1.outputs.output1 }}"
