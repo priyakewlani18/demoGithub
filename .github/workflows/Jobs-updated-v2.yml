@@ -18,8 +18,9 @@ jobs:
       - id: step1
         run: |
           incident=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')
+          incident="${incident//'%'/'%25'}"
           incident="${incident//$'\n'/'%0A'}"
-          echo $incident
+          incident="${incident//$'\r'/'%0D'}"
           echo "test=$incident" >> $GITHUB_OUTPUT
           
   job2:
@@ -27,5 +28,4 @@ jobs:
     needs: job1
     steps:
       - run: |
-            incident=${{ needs.job1.outputs.output1 }}
             echo "The string is: ${{ needs.job1.outputs.output1 }}"
