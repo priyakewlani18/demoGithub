@@ -12,10 +12,7 @@ jobs:
     steps:
       - name: create string
         run: |
-          MY_STRING=
-          "first line\n
-          second line\n
-          third line"
+          MY_STRING=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url'| tr -d '"')
           MY_STRING="${MY_STRING//'%'/'%25'}"
           MY_STRING="${MY_STRING//$'\n'/'%0A'}"
           MY_STRING="${MY_STRING//$'\r'/'%0D'}"
