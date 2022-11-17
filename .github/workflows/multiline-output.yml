@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     # Map a step output to a job output
     steps:
+      - uses: actions/checkout@v2
       - name: create string
         run: |
           MY_STRING=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url'| tr -d '"')
