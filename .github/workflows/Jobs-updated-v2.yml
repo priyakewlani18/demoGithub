@@ -22,5 +22,5 @@ jobs:
           echo "test=$incident" >> $GITHUB_OUTPUT
 
       - name: step2
-      - run: |
+        run: |
             echo "The string is: ${{ steps.step1.outputs.test }}"
