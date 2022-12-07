@@ -1,0 +1,22 @@
+[
+    {
+    "section": "Security Issues",
+    "labels": ["SECURITY", "security-high"],
+    "threshold": 2,
+    "description":"All High Security Issues",
+    "months": 4  
+    }, 
+    {
+    "section": "Medium Security Issues",
+    "labels": ["SECURITY", "security-medium"],
+    "threshold": 5,
+    "description":"All Medium Security Issues",
+    "months": 4  
+    }, 
+    {
+      "section": "Bounty Issues",
+      "labels": ["Bounty"],
+      "threshold": 5,
+      "months": 4  
+     }
+]
