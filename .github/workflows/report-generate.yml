@@ -19,13 +19,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: ashishonce/issue-reporter@main
-      with:
-        title: 'npm engineering scorecard'
-        configPath: '.github/workflows/issues-report/config.json'
-        outputPath: ${{ env.OUTPUT_FILE_NAME }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-   
     - uses: priyakewlani18/issue-reporter@main
       with:
         title: 'npm incident scorecard'
