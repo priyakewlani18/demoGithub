@@ -1,0 +1,47 @@
+name: Generate issues report
+
+on:
+  schedule:
+    - cron: '30 5,17 * * *'
+  workflow_dispatch: 
+
+env:
+  OUTPUT_FILE_NAME: docs/issues-report.md
+  OUTPUT_INCIDENT_FILE_NAME: docs/incident_issues-report.md
+  COMMITTER_EMAIL: priyakewlani18@github.com
+  COMMITTER_NAME: priyanka kewlani
+  COMMITTER_USERNAME: priyakewlani18
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: ashishonce/issue-reporter@main
+      with:
+        title: 'npm engineering scorecard'
+        configPath: '.github/workflows/issues-report/config.json'
+        outputPath: ${{ env.OUTPUT_FILE_NAME }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+   
+    - uses: priyakewlani18/issue-reporter@main
+      with:
+        title: 'npm incident scorecard'
+        configPath: '.github/workflows/issues-report/incident_config.json'
+        outputPath: ${{ env.OUTPUT_INCIDENT_FILE_NAME }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: "Commit if any changes were made"
+      run: |
+        git remote add github "https://$COMMITTER_USERNAME:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+        git pull github ${GITHUB_REF} --ff-only
+        if [[ `git status --porcelain` ]]; then
+          git add ${OUTPUT_FILE_NAME}
+          git add ${OUTPUT_INCIDENT_FILE_NAME}
+          git config --global user.email $COMMITTER_EMAIL
+          git config --global user.name $COMMITTER_NAME
+          git commit -m "Update reports"
+          git push github HEAD:${GITHUB_REF}
+        fi
