@@ -1,1 +1,8 @@
-
+### npm incident scorecard
+The table below shows data for last few months,There might we some error(approximate data) as we are not tracing issues which are very old as we can not go back in history too much and we make a since query
+### Summary
+| Section Title | description | Labels | Threshold | Monthly Count | Totals Open Now | Status|
+| :--- |  :----: | :----: |  :----:  |  :----:  |  :----: | :----: 
+| [Security Issues](https://github.com/priyakewlani18/demoGithub/issues?q=is%3Aissue+is%3Aopen+label%3ASECURITY+label%3Asecurity-high) | All High Security Issues   | `SECURITY`, `security-high` | 2|<table><thead><tr><th >month</th><th >open_count</th><th >close_count</th></tr></thead> <tbody><tr><td >December</td><td >0</td><td >0</td></tr><tr><td >November</td><td >0</td><td >0</td></tr><tr><td >October</td><td >0</td><td >0</td></tr></tbody></table>|0|💚🥳|
+| [Medium Security Issues](https://github.com/priyakewlani18/demoGithub/issues?q=is%3Aissue+is%3Aopen+label%3ASECURITY+label%3Asecurity-medium) | All Medium Security Issues   | `SECURITY`, `security-medium` | 5|<table><thead><tr><th >month</th><th >open_count</th><th >close_count</th></tr></thead> <tbody><tr><td >December</td><td >0</td><td >0</td></tr><tr><td >November</td><td >0</td><td >0</td></tr><tr><td >October</td><td >0</td><td >0</td></tr></tbody></table>|0|💚🥳|
+| [Bounty Issues](https://github.com/priyakewlani18/demoGithub/issues?q=is%3Aissue+is%3Aopen+label%3ABounty) |    | `Bounty` | 5|<table><thead><tr><th >month</th><th >open_count</th><th >close_count</th></tr></thead> <tbody><tr><td >December</td><td >2</td><td >0</td></tr><tr><td >November</td><td >0</td><td >0</td></tr><tr><td >October</td><td >0</td><td >0</td></tr></tbody></table>|2|💚🥳|
