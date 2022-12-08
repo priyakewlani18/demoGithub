@@ -7,7 +7,7 @@ on:
 
 env:
   OUTPUT_FILE_NAME: docs/issues-report.md
-  OUTPUT_INCIDENT_FILE_NAME: docs/incident_issues-report.md
+  OUTPUT_INCIDENT_FILE_NAME: docs/issues-report.md
   COMMITTER_EMAIL: priyakewlani18@github.com
   COMMITTER_NAME: priyanka kewlani
   COMMITTER_USERNAME: priyakewlani18
