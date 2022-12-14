@@ -1,4 +1,4 @@
-name: Enforce till incident issue till fill
+name: Enforce incident issue time fill
 
 on:
   issues:
@@ -6,10 +6,9 @@ on:
     if: >-
       contains(github.event.issue.labels.*.name, 'Incident')
 env:
-  OUTPUT_FILE_NAME: docs/mttr_report.csv
-  COMMITTER_EMAIL: ashishonce@github.com
-  COMMITTER_NAME: ashish kumar
-  COMMITTER_USERNAME: ashishonce
+  COMMITTER_EMAIL: priyakewlani18@github.com
+  COMMITTER_NAME: priyanka kewlani
+  COMMITTER_USERNAME: priyakewlani18
 
 jobs:
 
