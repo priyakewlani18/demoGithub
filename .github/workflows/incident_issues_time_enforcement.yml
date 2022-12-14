@@ -1,9 +1,10 @@
-name: Generate TTD MTTR Report
+name: Enforce till incident issue till fill
 
 on:
   issues:
     types: [closed] 
-
+    if: >-
+      contains(github.event.issue.labels.*.name, 'Incident')
 env:
   OUTPUT_FILE_NAME: docs/mttr_report.csv
   COMMITTER_EMAIL: ashishonce@github.com
@@ -11,8 +12,11 @@ env:
   COMMITTER_USERNAME: ashishonce
 
 jobs:
+
   build:
+  
     runs-on: ubuntu-latest
+
     steps:
 
     - uses: actions/checkout@v2
@@ -30,17 +34,3 @@ jobs:
       env:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        OUTPUT_FILE_NAME: ${{env.OUTPUT_FILE_NAME}}
-        
-    - name: "Commit if any changes were made"
-      run: |
-        git remote add github "https://$COMMITTER_USERNAME:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
-        git pull github ${GITHUB_REF} --ff-only
-        if [[ `git status --porcelain` ]]; then
-          git status
-          git add ${OUTPUT_FILE_NAME}
-          git config --global user.email $COMMITTER_EMAIL
-          git config --global user.name $COMMITTER_NAME
-          git commit -m "Update mttr reports"
-          git push github HEAD:${GITHUB_REF}
-        fi
