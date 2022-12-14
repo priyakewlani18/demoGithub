@@ -1,0 +1,46 @@
+name: Generate TTD MTTR Report
+
+on:
+  issues:
+    types: [closed] 
+
+env:
+  OUTPUT_FILE_NAME: docs/mttr_report.csv
+  COMMITTER_EMAIL: ashishonce@github.com
+  COMMITTER_NAME: ashish kumar
+  COMMITTER_USERNAME: ashishonce
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-node@v2.2.0
+      with:
+        node-version: 14
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run issue triager
+      run: node issue_triager/incident_issue_time_check.js
+      env:
+        DEBUG: true
+        PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OUTPUT_FILE_NAME: ${{env.OUTPUT_FILE_NAME}}
+        
+    - name: "Commit if any changes were made"
+      run: |
+        git remote add github "https://$COMMITTER_USERNAME:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+        git pull github ${GITHUB_REF} --ff-only
+        if [[ `git status --porcelain` ]]; then
+          git status
+          git add ${OUTPUT_FILE_NAME}
+          git config --global user.email $COMMITTER_EMAIL
+          git config --global user.name $COMMITTER_NAME
+          git commit -m "Update mttr reports"
+          git push github HEAD:${GITHUB_REF}
+        fi
