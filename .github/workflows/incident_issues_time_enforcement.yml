@@ -28,7 +28,14 @@ jobs:
       run: npm install
 
     - name: Run issue triager
-      run: node issue_triager/incident_issue_time_check.js
+      run: isTimePresent= $(node issue_triager/incident_issue_time_check.js)
       env:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+    - name: Add comment on issue
+      uses: alexrogalskiy/github-action-issue-commenter@master
+      if: $isTimePresent == true
+      with:
+          message: 'Commenting on issue to testify its valid resolution'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
