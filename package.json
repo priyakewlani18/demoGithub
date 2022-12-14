@@ -1,0 +1,22 @@
+{
+  "name": "demogithub",
+  "version": "1.0.0",
+  "description": "Demo Github Repo",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyakewlani18/demoGithub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyakewlani18/demoGithub/issues"
+  },
+  "homepage": "https://github.com/priyakewlani18/demoGithub#readme"
+}
