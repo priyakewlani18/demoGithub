@@ -36,7 +36,11 @@ jobs:
       if: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
       uses: actions-cool/issues-helper@v3
       with:
-        actions: 'get-issue'
-        token: ${{ secrets.GITHUB_TOKEN }}
-        issue-number: ${{ github.event.issue.number }}
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}. Add some comments.
+
+            你好 @${{ github.event.issue.user.login }}。巴拉巴拉。
     
