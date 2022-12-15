@@ -32,6 +32,13 @@ jobs:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: Get color
-      run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+    - name: Open issue   
+      uses: actions-cool/issues-helper@v3
+      if: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
+      with:
+        actions: 'open-issue'
+        token: ${{ secrets.GITHUB_TOKEN }}
+        issue-number: github.event.issue.number
+    
+
 
