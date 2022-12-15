@@ -29,9 +29,7 @@ jobs:
 
     - name: Run issue triager
       run: |
-           isTimePresent= $(node issue_triager/incident_issue_time_check.js)
-           echo "$isTimePresent"
-           echo "::set-output name=content::$isTimePresent"
+            echo ::set-output name=content::$(node issue_triager/incident_issue_time_check.js)
       id: timeData
       env:
         DEBUG: true
