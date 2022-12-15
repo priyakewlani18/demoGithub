@@ -32,13 +32,11 @@ jobs:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: Open issue   
-      uses: actions-cool/issues-helper@v3
+    - name: Open issue 
       if: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
+      uses: actions-cool/issues-helper@v3
       with:
         actions: 'open-issue'
         token: ${{ secrets.GITHUB_TOKEN }}
         issue-number: github.event.issue.number
     
-
-
