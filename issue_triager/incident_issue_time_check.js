@@ -1,1 +1,1 @@
-return true
+console.log(true)
