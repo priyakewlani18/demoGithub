@@ -37,6 +37,6 @@ jobs:
       uses: actions-cool/issues-helper@v3
       with:
         actions: 'open-issue'
-        token: ${{ secrets.AUTH_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         issue-number: github.event.issue.number
     
