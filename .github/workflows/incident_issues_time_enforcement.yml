@@ -32,7 +32,7 @@ jobs:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: Open issue 
+    - name: Comment on an issue 
       if: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
       uses: actions-cool/issues-helper@v3
       with:
@@ -42,4 +42,11 @@ jobs:
           body: |
                 To avoid reopening the issue, please fill the 
                 `impact start time(utc)`, `detect time(utc)` , and `resolved time(utc)` in the desired format. Check the correct format of time in the [sample issue](https://github.com/priyakewlani18/demoGithub/issues/3).
-    
+  
+    - name: Open Issue 
+      if: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
+      uses: actions-cool/issues-helper@v3
+      with:
+          actions: 'open-issue'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
