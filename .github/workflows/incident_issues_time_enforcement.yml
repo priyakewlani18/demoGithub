@@ -36,7 +36,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-                To avoid reopening the issue, please fill the 
+                To avoid reopening of the issue, please fill the 
                 `impact start time(utc)`, `detect time(utc)` , and `resolved time(utc)` in the desired format. Check the correct format of time in the [sample issue](https://github.com/priyakewlani18/demoGithub/issues/3).
   
     - name: Open Issue 
