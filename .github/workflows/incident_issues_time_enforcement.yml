@@ -29,7 +29,10 @@ jobs:
       
     - name: Set color
       id: random-color-generator
-      run: echo "SELECTED_COLOR=$(node issue_triager/incident_issue_time_check.js)" >> $GITHUB_OUTPUT
+      run: |
+          timeData = $(node issue_triager/incident_issue_time_check.js)
+          echo $timeData 
+          echo "SELECTED_COLOR=$timeData" >> $GITHUB_OUTPUT
       env:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
