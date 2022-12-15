@@ -40,7 +40,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Hello @${{ github.event.issue.user.login }}. Add some comments.
-
-            你好 @${{ github.event.issue.user.login }}。巴拉巴拉。
+                To avoid reopening the issue, please fill the 
+                `impact start time(utc)`, `detect time(utc)` , and `resolved time(utc)` in the desired format. Check the correct format of time in the [sample issue](https://github.com/priyakewlani18/demoGithub/issues/3).
     
