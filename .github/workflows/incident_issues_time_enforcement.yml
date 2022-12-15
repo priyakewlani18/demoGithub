@@ -11,13 +11,9 @@ env:
   COMMITTER_USERNAME: priyakewlani18
 
 jobs:
-
   build:
-  
     runs-on: ubuntu-latest
-
     steps:
-
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v3
       with:
@@ -25,15 +21,15 @@ jobs:
         #cache: 'npm'
     - run: npm install
       
-    - name: Set color
-      id: random-color-generator
-      run: echo "SELECTED_COLOR=$(node issue_triager/incident_issue_time_check.js)">> $GITHUB_OUTPUT
+    - name: Check incident time value
+      id: time-checker
+      run: echo "TIME_VALUE=$(node issue_triager/incident_issue_time_check.js)">> $GITHUB_OUTPUT
       env:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Comment on an issue 
-      if: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
+      if: ${{ steps.time-checker.outputs.TIME_VALUE }}
       uses: actions-cool/issues-helper@v3
       with:
           actions: 'create-comment'
@@ -44,7 +40,7 @@ jobs:
                 `impact start time(utc)`, `detect time(utc)` , and `resolved time(utc)` in the desired format. Check the correct format of time in the [sample issue](https://github.com/priyakewlani18/demoGithub/issues/3).
   
     - name: Open Issue 
-      if: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
+      if: ${{ steps.time-checker.outputs.TIME_VALUE }}
       uses: actions-cool/issues-helper@v3
       with:
           actions: 'open-issue'
