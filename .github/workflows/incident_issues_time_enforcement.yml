@@ -31,6 +31,7 @@ jobs:
       env:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Open issue 
       if: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
