@@ -29,20 +29,11 @@ jobs:
       
     - name: Set color
       id: random-color-generator
-      run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
-    
-    - name: Get color
-      run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-        
-    - run: |
-        run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
-         echo ::set-output name=IDTOKEN::$(node issue_triager/incident_issue_time_check.js)
-         echo $IDTOKEN
-      id: idtoken
+      run: echo "SELECTED_COLOR=$(node issue_triager/incident_issue_time_check.js)" >> $GITHUB_OUTPUT
       env:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      
-    - name: print the value
-      run: echo " Time data is ${{ steps.idtoken.outputs.IDTOKEN }}"
+    
+    - name: Get color
+      run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+
