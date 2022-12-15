@@ -26,21 +26,15 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
-    - name: Run issue triager
-      run: |
-            echo ::set-output name=content::$(node issue_triager/incident_issue_time_check.js)
-      id: timeData
+        
+    - run: |
+         echo ::set-output name=IDTOKEN::$(node issue_triager/incident_issue_time_check.js)
+         echo $IDTOKEN
+      id: idtoken
       env:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: print the value
-      run: echo " Time data is ${{ steps.timeData.outputs.content }}"
       
-    - name: Add comment on issue
-      uses: alexrogalskiy/github-action-issue-commenter@master
-      if: ${{ steps.timeData.outputs.content }} == true
-      with:
-          message: 'Commenting on issue to testify its valid resolution'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+    - name: print the value
+      run: echo " Time data is ${{ steps.idtoken.outputs.IDTOKEN }}"
