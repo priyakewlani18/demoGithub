@@ -4,33 +4,37 @@ StartRegexFormat = [/(?<=When did the incident start \(UTC\)\r\n\r\n)(?<date>.*)
 EndRegexFormat = [/(?<=When was the incident resolved \(UTC\)\r\n\r\n)(?<date>.*)/m];
 DetectTimeRegexFormat = [/(?<=When did we detect the incident \(UTC\)\r\n\r\n)(?<date>.*)/m];
 
-process.argv.forEach(function (val, index) {
-    if(index === 2){
-        console.log("value is", val)
-        OWNER = process.env.OWNER;
-        REPO = process.env.REPO;
-          const octokit = new Octokit({
-            auth:process.env.PROJECT_TOKEN,
-            previews:['inertia-preview']
-          });
-        const issue = octokit.paginate('GET /repos/:owner/:repo/issues', {
-        OWNER,
-        REPO,
-        issue_number:parseInt(val)
-        });
-        console.log("issue", issue)
-        console.log("issue body",issue.body)
-        if (!getStartTime(issue.body) && !getDetectTime(issue.body) && !getEndTime(issue.body)) {
-            console.log("start time body", getStartTime(issue.body))
-            console.log("detect time body", getDetectTime(issue.body))
-            console.log("end time body", getEndTime(issue.body))
-            console.log(true)
-        }
-        else {
-            console.log(false)
-        }
-    }
+async function getIssue (octokit, owner, repo, issue_number) {
+  return await octokit.paginate('GET /repos/:owner/:repo/issues', {
+    owner,
+    repo,
+    issue_number:issue_number
   });
+}
+
+async function run () {
+ 
+ OWNER = process.env.OWNER;
+ REPO = process.env.REPO;
+ issue_number = parseInt(process.argv[2])
+ const octokit = new Octokit({
+    auth:process.env.PROJECT_TOKEN,
+    previews:['inertia-preview']
+    });
+    
+ const issue = await getIssue(octokit, OWNER, REPO, process.argv[2]);
+ console.log(issue.body)
+    
+ if (!getStartTime(issue.body) && !getDetectTime(issue.body) && !getEndTime(issue.body)) {
+    console.log("start time body", getStartTime(issue.body))
+    console.log("detect time body", getDetectTime(issue.body))
+    console.log("end time body", getEndTime(issue.body))
+    console.log(true)
+ }
+ else {
+    console.log(false)
+ }     
+}
 
   function getStartTime(body){
     let startTimer = 0
@@ -85,3 +89,13 @@ process.argv.forEach(function (val, index) {
   
     return undefined
   }
+
+(async () => {
+  try {
+    await run();
+  }
+  catch (e) {
+    console.error(e);
+    process.exit(1);
+  }
+})();
