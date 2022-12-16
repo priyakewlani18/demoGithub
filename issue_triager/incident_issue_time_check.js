@@ -21,7 +21,7 @@ async function run () {
     auth:process.env.PROJECT_TOKEN,
     previews:['inertia-preview']
     });
-    
+ console.log("issue number is", issue_number)
  const issue = await getIssue(octokit, OWNER, REPO, issue_number);
  console.log("body is ", issue[0])
     
