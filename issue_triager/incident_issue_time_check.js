@@ -5,6 +5,8 @@ EndRegexFormat = [/(?<=When was the incident resolved \(UTC\)\r\n\r\n)(?<date>.*
 DetectTimeRegexFormat = [/(?<=When did we detect the incident \(UTC\)\r\n\r\n)(?<date>.*)/m];
 
 process.argv.forEach(function (val, index) {
+    settings.OWNER = process.env.OWNER || 'github';
+    settings.REPO = process.env.REPO || 'npm';
     if(index === 2){
         console.log("value is", val)
         const issue = octokit.paginate('GET /repos/:owner/:repo/issues', {
