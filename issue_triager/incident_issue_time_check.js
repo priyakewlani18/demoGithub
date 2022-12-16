@@ -10,8 +10,8 @@ process.argv.forEach(function (val, index) {
         OWNER = process.env.OWNER;
         REPO = process.env.REPO;
           const octokit = new Octokit({
-            auth: settings.PROJECT_TOKEN,
-            previews: ['inertia-preview']
+            auth:process.env.PROJECT_TOKEN,
+            previews:['inertia-preview']
           });
         const issue = octokit.paginate('GET /repos/:owner/:repo/issues', {
         OWNER,
