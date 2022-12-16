@@ -7,9 +7,11 @@ DetectTimeRegexFormat = [/(?<=When did we detect the incident \(UTC\)\r\n\r\n)(?
 process.argv.forEach(function (val, index) {
     if(index === 2){
         console.log("value is", val)
+        OWNER = process.env.OWNER;
+        REPO = process.env.REPO;
         const issue = octokit.paginate('GET /repos/:owner/:repo/issues', {
-        process.env.OWNER,
-        process.env.REPO,
+        OWNER,
+        REPO,
         issue_number:val
         });
         if (!getStartTime(issue.body) && !getDetectTime(issue.body) && !getEndTime(issue.body)) {
