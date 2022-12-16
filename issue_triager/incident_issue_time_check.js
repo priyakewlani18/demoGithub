@@ -22,8 +22,8 @@ async function run () {
     previews:['inertia-preview']
     });
     
- const issue = await getIssue(octokit, OWNER, REPO, process.argv[2]);
- console.log(issue.body)
+ const issue = await getIssue(octokit, OWNER, REPO, issue_number);
+ console.log("body is ", issue.body)
     
  if (!getStartTime(issue.body) && !getDetectTime(issue.body) && !getEndTime(issue.body)) {
     console.log("start time body", getStartTime(issue.body))
