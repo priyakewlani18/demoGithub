@@ -24,7 +24,6 @@ jobs:
     - name: Check incident time value
       id: time-checker
       run: |
-        echo "body is $GITHUB_CONTEXT"
         echo "$(node issue_triager/incident_issue_time_check.js $GITHUB_CONTEXT )"
         echo "TIME_VALUE=$(node issue_triager/incident_issue_time_check.js $GITHUB_CONTEXT )">> $GITHUB_OUTPUT
       env:
