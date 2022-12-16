@@ -9,6 +9,9 @@ env:
   COMMITTER_EMAIL: priyakewlani18@github.com
   COMMITTER_NAME: priyanka kewlani
   COMMITTER_USERNAME: priyakewlani18
+  OWNER: priyakewlani18
+  REPO: demoGithub
+  
 
 jobs:
   build:
