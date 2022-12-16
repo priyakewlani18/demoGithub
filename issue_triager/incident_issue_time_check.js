@@ -4,15 +4,16 @@ StartRegexFormat = [/(?<=When did the incident start \(UTC\)\r\n\r\n)(?<date>.*)
 EndRegexFormat = [/(?<=When was the incident resolved \(UTC\)\r\n\r\n)(?<date>.*)/m];
 DetectTimeRegexFormat = [/(?<=When did we detect the incident \(UTC\)\r\n\r\n)(?<date>.*)/m];
 
-process.argv.forEach(function (val) {
-    console.log(val);
-    body = val[2]
-    if (!getStartTime(body) && !getDetectTime(body) && !getEndTime(body)) {
-        console.log(true)
+process.argv.forEach(function (val, index) {
+    if(index === 2){
+        body = val;
+        if (!getStartTime(body) && !getDetectTime(body) && !getEndTime(body)) {
+            console.log(true)
+        }
+        else {
+            console.log(false)
+        }
     }
-    else {
-        console.log(false)
-    } 
   });
 
   function getStartTime(body){
