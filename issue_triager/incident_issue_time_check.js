@@ -18,6 +18,7 @@ process.argv.forEach(function (val, index) {
         REPO,
         issue_number:val
         });
+        console.log("issue body",issue.body)
         if (!getStartTime(issue.body) && !getDetectTime(issue.body) && !getEndTime(issue.body)) {
             console.log("start time body", getStartTime(issue.body))
             console.log("detect time body", getDetectTime(issue.body))
