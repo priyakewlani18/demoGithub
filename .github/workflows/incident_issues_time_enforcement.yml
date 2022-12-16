@@ -24,10 +24,10 @@ jobs:
     - name: Check incident time value
       id: time-checker
       run: |
-      
-        echo "body is $(github.event.issue.body)"
-        echo "$(node issue_triager/incident_issue_time_check.js $(github.event.issue.body) )"
-        echo "TIME_VALUE=$(node issue_triager/incident_issue_time_check.js $(github.event.issue.body) )">> $GITHUB_OUTPUT
+        body = {{ github.event.issue.body }}
+        echo "body is $body"
+        echo "$(node issue_triager/incident_issue_time_check.js $body )"
+        echo "TIME_VALUE=$(node issue_triager/incident_issue_time_check.js $body )">> $GITHUB_OUTPUT
       env:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
