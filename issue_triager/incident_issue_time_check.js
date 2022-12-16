@@ -7,7 +7,7 @@ DetectTimeRegexFormat = [/(?<=When did we detect the incident \(UTC\)\r\n\r\n)(?
 process.argv.forEach(function (val, index) {
     if(index === 2){
         console.log("value is", val)
-        const issue = await octokit.paginate('GET /repos/:owner/:repo/issues', {
+        const issue = octokit.paginate('GET /repos/:owner/:repo/issues', {
         settings.OWNER,
         settings.REPO,
         issue_number:val
