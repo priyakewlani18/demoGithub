@@ -23,12 +23,12 @@ async function run () {
     });
     
  const issue = await getIssue(octokit, OWNER, REPO, issue_number);
- console.log("body is ", issue)
+ console.log("body is ", issue[0].body)
     
- if (!getStartTime(issue.body) && !getDetectTime(issue.body) && !getEndTime(issue.body)) {
-    console.log("start time body", getStartTime(issue.body))
-    console.log("detect time body", getDetectTime(issue.body))
-    console.log("end time body", getEndTime(issue.body))
+ if (!getStartTime(issue[0].body) && !getDetectTime(issue[0].body) && !getEndTime(issue[0].body)) {
+    console.log("start time body", getStartTime(issue[0].body))
+    console.log("detect time body", getDetectTime(issue[0].body))
+    console.log("end time body", getEndTime(issue[0].body))
     console.log(true)
  }
  else {
