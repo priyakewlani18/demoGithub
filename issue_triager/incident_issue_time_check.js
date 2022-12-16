@@ -9,8 +9,10 @@ process.argv.forEach(function (val) {
     body = val[2]
     if (!getStartTime(body) && !getDetectTime(body) && !getEndTime(body)) {
         console.log(true)
-    }      
-    console.log(false)
+    }
+    else {
+        console.log(false)
+    } 
   });
 
   function getStartTime(body){
