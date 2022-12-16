@@ -4,13 +4,13 @@ StartRegexFormat = [/(?<=When did the incident start \(UTC\)\r\n\r\n)(?<date>.*)
 EndRegexFormat = [/(?<=When was the incident resolved \(UTC\)\r\n\r\n)(?<date>.*)/m];
 DetectTimeRegexFormat = [/(?<=When did we detect the incident \(UTC\)\r\n\r\n)(?<date>.*)/m];
 
-async function getIssue (octokit, owner, repo, issue_number) {
+async function getIssue (octokit, owner, repo, issueNumber) {
 
-  return await octokit.rest.issues.get({
-  owner,
-  repo,
-  issue_number,
-});
+  return await octokit.paginate('GET /repos/:owner/:repo/issues', {
+    owner,
+    repo,
+    issue_number: issueNumber
+  });
 }
 
 async function run () {
