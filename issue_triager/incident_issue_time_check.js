@@ -7,7 +7,6 @@ DetectTimeRegexFormat = [/(?<=When did we detect the incident \(UTC\)\r\n\r\n)(?
 process.argv.forEach(function (val, index) {
     if(index === 2){
         body = val;
-        console.log(body);
         if (!getStartTime(body) && !getDetectTime(body) && !getEndTime(body)) {
             console.log(true)
         }
