@@ -16,7 +16,7 @@ process.argv.forEach(function (val, index) {
         const issue = octokit.paginate('GET /repos/:owner/:repo/issues', {
         OWNER,
         REPO,
-        issue_number:val
+        issue_number:parseInt(val)
         });
         console.log("issue body",issue.body)
         if (!getStartTime(issue.body) && !getDetectTime(issue.body) && !getEndTime(issue.body)) {
