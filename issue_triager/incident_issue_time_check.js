@@ -9,7 +9,11 @@ process.argv.forEach(function (val, index) {
         console.log("value is", val)
         OWNER = process.env.OWNER;
         REPO = process.env.REPO;
-        const issue = Octokit.paginate('GET /repos/:owner/:repo/issues', {
+          const octokit = new Octokit({
+            auth: settings.PROJECT_TOKEN,
+            previews: ['inertia-preview']
+          });
+        const issue = octokit.paginate('GET /repos/:owner/:repo/issues', {
         OWNER,
         REPO,
         issue_number:val
