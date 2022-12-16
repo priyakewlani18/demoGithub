@@ -1,4 +1,4 @@
-
+const { Octokit } = require('@octokit/rest');
 const date = '2022-11-01T00:00:00Z'
 StartRegexFormat = [/(?<=When did the incident start \(UTC\)\r\n\r\n)(?<date>.*)/m, /(?<=When did the impact start \(UTC\)\r\n\r\n)(?<date>.*)/m];
 EndRegexFormat = [/(?<=When was the incident resolved \(UTC\)\r\n\r\n)(?<date>.*)/m];
@@ -6,12 +6,16 @@ DetectTimeRegexFormat = [/(?<=When did we detect the incident \(UTC\)\r\n\r\n)(?
 
 process.argv.forEach(function (val, index) {
     if(index === 2){
-        body = val;
-        console.log("body is", body)
-        if (!getStartTime(body) && !getDetectTime(body) && !getEndTime(body)) {
-            console.log("start time body", getStartTime(body))
-            console.log("detect time body", getDetectTime(body))
-            console.log("end time body", getEndTime(body))
+        console.log("value is", val)
+        const issue = return await octokit.paginate('GET /repos/:owner/:repo/issues', {
+        settings.OWNER,
+        settings.REPO,
+        issue_number:val
+        });
+        if (!getStartTime(issue.body) && !getDetectTime(issue.body) && !getEndTime(issue.body)) {
+            console.log("start time body", getStartTime(issue.body))
+            console.log("detect time body", getDetectTime(issue.body))
+            console.log("end time body", getEndTime(issue.body))
             console.log(true)
         }
         else {
