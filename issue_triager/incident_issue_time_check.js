@@ -33,9 +33,9 @@ process.argv.forEach(function (val, index) {
   function getStartTime(body){
     let startTimer = 0
     for(const regex of this.StartRegexFormat) {
-      console.log(body)
+      //console.log(body)
       const matches = body.match(regex || '') || [];
-      console.log(matches)
+      //console.log(matches)
       if (matches?.length > 0) {
           const startDate = Date.parse(matches[1].trim().replace(/\.$/, ''));
           startTimer = isNaN(startDate) ? undefined : new Date(startDate);
