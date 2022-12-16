@@ -11,29 +11,38 @@ env:
   COMMITTER_USERNAME: priyakewlani18
 
 jobs:
-
   build:
-  
     runs-on: ubuntu-latest
-
     steps:
-
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v3
       with:
         node-version: 16
         #cache: 'npm'
-    - run: npm ci
+    - run: npm install
       
-    - name: Set color
-      id: random-color-generator
-      run: |
-          node issue_triager/incident_issue_time_check.js 
-          echo "SELECTED_COLOR=$(node issue_triager/incident_issue_time_check.js)" >> $GITHUB_OUTPUT
+    - name: Check incident time value
+      id: time-checker
+      run: echo "TIME_VALUE=$(node issue_triager/incident_issue_time_check.js)">> $GITHUB_OUTPUT
       env:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: Get color
-      run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-
+    - name: Comment on an issue 
+      if: ${{ steps.time-checker.outputs.TIME_VALUE }}
+      uses: actions-cool/issues-helper@v3
+      with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+                To avoid reopening of the issue, please fill the 
+                `impact start time(utc)`, `detect time(utc)` , and `resolved time(utc)` in the desired format. Check the correct format of time in the [sample issue](https://github.com/priyakewlani18/demoGithub/issues/3).
+  
+    - name: Open Issue 
+      if: ${{ steps.time-checker.outputs.TIME_VALUE }}
+      uses: actions-cool/issues-helper@v3
+      with:
+          actions: 'open-issue'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
