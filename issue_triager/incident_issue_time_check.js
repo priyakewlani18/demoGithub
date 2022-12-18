@@ -8,8 +8,7 @@ async function getIssue (octokit, owner, repo, issueNumber) {
 
   return await octokit.paginate('GET /repos/:owner/:repo/issues', {
     owner,
-    repo,
-    number: issueNumber
+    repo
   });
 }
 
