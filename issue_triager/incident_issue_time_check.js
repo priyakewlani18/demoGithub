@@ -9,7 +9,7 @@ async function getIssue (octokit, owner, repo, issueNumber) {
   return await octokit.paginate('GET /repos/:owner/:repo/issues', {
     owner,
     repo,
-    issue_number: 3
+    issue_number: issueNumber
   });
 }
 
@@ -24,6 +24,7 @@ async function run () {
     });
  console.log("issue number is", issue_number)
  const issue = await getIssue(octokit, OWNER, REPO, issue_number);
+ console.log("issue length is", issue.length);
  console.log("body is ", issue[0])
     
  if (!getStartTime(issue[0].body) && !getDetectTime(issue[0].body) && !getEndTime(issue[0].body)) {
