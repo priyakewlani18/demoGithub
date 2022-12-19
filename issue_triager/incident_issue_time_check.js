@@ -7,8 +7,9 @@ DetectTimeRegexFormat = [/(?<=When did we detect the incident \(UTC\)\r\n\r\n)(?
 async function getIssue (octokit, owner, repo, issueNumber) {
 
   return await octokit.paginate('GET /repos/:owner/:repo/issues', {
-    owner,
-    repo
+    'priyakewlani18',
+     'demoGithub',
+     issue_number: issueNumber
   });
 }
 
