@@ -3,8 +3,7 @@ name: Enforce incident issue time fill
 on:
   issues:
     types: [closed] 
-    if: >-
-      contains(github.event.issue.labels.*.name, 'Incident')
+    if: contains(github.event.issue.labels.*.name, 'Incident')
 env:
   COMMITTER_EMAIL: priyakewlani18@github.com
   COMMITTER_NAME: priyanka kewlani
