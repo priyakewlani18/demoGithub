@@ -31,9 +31,6 @@ async function run () {
     console.log(false)
  }
  else {
-     console.log("start time body", getStartTime(issue[0].body))
-     console.log("detect time body", getDetectTime(issue[0].body))
-     console.log("end time body", getEndTime(issue[0].body))
     console.log(true)
  }     
 }
