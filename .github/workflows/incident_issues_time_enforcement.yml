@@ -14,7 +14,7 @@ env:
 
 jobs:
   build:
-    if: ${{ github.event.issue.labels.*.name == 'Incident' }}
+    if: contains(github.event.issue.labels.*.name, 'Incident')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
