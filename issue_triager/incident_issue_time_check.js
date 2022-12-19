@@ -22,15 +22,15 @@ async function run () {
     auth:process.env.PROJECT_TOKEN,
     previews:['inertia-preview']
     });
- console.log("issue number is", issue_number)
+ //console.log("issue number is", issue_number)
  const issue = await getIssue(octokit, OWNER, REPO, issue_number);
- console.log("issue length is", issue.length);
- console.log("body is ", issue[0])
+ //console.log("issue length is", issue.length);
+//console.log("body is ", issue[0])
     
  if (!getStartTime(issue[0].body) && !getDetectTime(issue[0].body) && !getEndTime(issue[0].body)) {
-    console.log("start time body", getStartTime(issue[0].body))
-    console.log("detect time body", getDetectTime(issue[0].body))
-    console.log("end time body", getEndTime(issue[0].body))
+    //console.log("start time body", getStartTime(issue[0].body))
+    //console.log("detect time body", getDetectTime(issue[0].body))
+    //console.log("end time body", getEndTime(issue[0].body))
     console.log(true)
  }
  else {
