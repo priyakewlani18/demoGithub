@@ -35,7 +35,7 @@ jobs:
         GITHUB_CONTEXT: ${{ github.event.issue.number }}
     
     - name: Comment on an issue 
-      if: ${{ steps.time-checker.outputs.TIME_VALUE == true }}
+      if: ${{ steps.time-checker.outputs.TIME_VALUE == 'true' }}
       uses: actions-cool/issues-helper@v3
       with:
           actions: 'create-comment'
@@ -46,7 +46,7 @@ jobs:
                 `impact start time(utc)`, `detect time(utc)` , and `resolved time(utc)` in the desired format. Check the correct format of time in the [sample issue](https://github.com/priyakewlani18/demoGithub/issues/3).
   
     - name: Open Issue 
-      if: ${{ steps.time-checker.outputs.TIME_VALUE == true }}
+      if: ${{ steps.time-checker.outputs.TIME_VALUE == 'true' }}
       uses: actions-cool/issues-helper@v3
       with:
           actions: 'open-issue'
