@@ -27,14 +27,14 @@ async function run () {
  //console.log("issue length is", issue.length);
 //console.log("body is ", issue[0])
     
- if (!getStartTime(issue[0].body) && !getDetectTime(issue[0].body) && !getEndTime(issue[0].body)) {
-    //console.log("start time body", getStartTime(issue[0].body))
-    //console.log("detect time body", getDetectTime(issue[0].body))
-    //console.log("end time body", getEndTime(issue[0].body))
-    console.log(true)
+ if (getStartTime(issue[0].body) && getDetectTime(issue[0].body) && getEndTime(issue[0].body)) {
+    console.log(false)
  }
  else {
-    console.log(false)
+     console.log("start time body", getStartTime(issue[0].body))
+     console.log("detect time body", getDetectTime(issue[0].body))
+     console.log("end time body", getEndTime(issue[0].body))
+    console.log(true)
  }     
 }
 
