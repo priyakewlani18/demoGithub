@@ -35,7 +35,7 @@ jobs:
         GITHUB_CONTEXT: ${{ github.event.issue.number }}
     
     - name: Comment on an issue 
-      if: ${{ steps.time-checker.outputs.TIME_VALUE }}
+      if: ${{ steps.time-checker.outputs.TIME_VALUE == true }}
       uses: actions-cool/issues-helper@v3
       with:
           actions: 'create-comment'
