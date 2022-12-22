@@ -1,4 +1,4 @@
-### npm incident scorecard
+### npm incident scorecard New
 The table below shows data for last few months,There might we some error(approximate data) as we are not tracing issues which are very old as we can not go back in history too much and we make a since query
 ### Summary
 | Section Title | description | Labels | Threshold | Monthly Count | Totals Open Now | Status|
