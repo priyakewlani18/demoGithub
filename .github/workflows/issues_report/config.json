@@ -4,19 +4,22 @@
     "labels": ["Active"],
     "threshold": 2,
     "description":"All High Security Issues",
-    "months": 4  
+    "months": 4,
+    "page": 1,
     }, 
     {
     "section": "Medium Security Issues",
     "labels": ["Incident"],
     "threshold": 5,
     "description":"All Medium Security Issues",
-    "months": 4  
+    "months": 4,
+    "page": 2,
     }, 
     {
       "section": "Bounty Issues",
       "labels": ["Bounty"],
       "threshold": 5,
-      "months": 4  
+      "months": 4,
+      "page" : 1
      }
 ]
