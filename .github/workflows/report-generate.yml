@@ -25,6 +25,7 @@ jobs:
         configPath: '.github/workflows/issues_report/config.json'
         outputPath: ${{ env.OUTPUT_INCIDENT_FILE_NAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
+        tableCount: '2'
 
     - name: "Commit if any changes were made"
       run: |
