@@ -19,30 +19,4 @@
       "threshold": 5,
       "months": 4  
      }
-],
-[
-    {
-    "section": "Incidents",
-    "labels": ["Incident"],
-     "excludeLabels":["dummy-incident"],
-    "threshold": 20,
-    "description":"All Incidents",
-    "months": 7 
-    },
-    {
-    "section": "Incidents Cause ",
-    "labels": ["Incident", "category:repeat"],
-    "excludeLabels":["dummy-incident"],
-    "threshold": 20,
-    "description":"All repeat Incidents",
-    "months": 3 
-    },
-    {
-    "section": "Incidents SLO impacting ",
-    "labels": ["Incident", "impact:slo"],
-    "excludeLabels":["dummy-incident"],
-    "threshold": 20,
-    "description":"All slo impacting Incidents",
-    "months": 7
-    }
-   ]
+]
