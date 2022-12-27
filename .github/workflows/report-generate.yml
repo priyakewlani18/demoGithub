@@ -23,6 +23,7 @@ jobs:
       with:
         title: 'npm incident scorecard New'
         configPath: '.github/workflows/issues_report/config.json'
+        tableConfigPath: '.github/workflows/issues_report/incident-config.json'
         outputPath: ${{ env.OUTPUT_INCIDENT_FILE_NAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
         tableCount: '2'
