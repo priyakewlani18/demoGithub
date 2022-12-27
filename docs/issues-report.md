@@ -4,12 +4,12 @@ The table below shows data for the last few weeks and open count since Oct'22 ,T
 ### undefined
 | Section Title | description | Labels | Threshold | Weekly Count | Totals Open Now since Oct 2022 | Status|
 | :--- |  :----: | :----: |  :----:  |  :----:  |  :----: | :----: 
-### undefined
-| Section Title | description | Labels | Threshold | Weekly Count | Totals Open Now since Oct 2022 | Status|
-| :--- |  :----: | :----: |  :----:  |  :----:  |  :----: | :----: 
-### undefined
-| Section Title | description | Labels | Threshold | Weekly Count | Totals Open Now since Oct 2022 | Status|
-| :--- |  :----: | :----: |  :----:  |  :----:  |  :----: | :----: 
 | [Security Issues](https://github.com/priyakewlani18/demoGithub/issues?q=is%3Aissue+is%3Aopen+label%3AActive) | All High Security Issues   | `Active` | 2|<table><thead><tr><th >week</th><th >issues_opened_count</th></tr></thead> <tbody><tr><td >This Week</td><td >0</td></tr><tr><td >Last Week</td><td >0</td></tr><tr><td >Last Week Ago</td><td >2</td></tr></tbody></table>|0|💚🥳|
-| [Medium Security Issues](https://github.com/priyakewlani18/demoGithub/issues?q=is%3Aissue+is%3Aopen+label%3AIncident) | All Medium Security Issues   | `Incident` | 5|<table><thead><tr><th >week</th><th >issues_opened_count</th></tr></thead> <tbody><tr><td >This Week</td><td >0</td></tr><tr><td >Last Week</td><td >0</td></tr><tr><td >Last Week Ago</td><td >2</td></tr></tbody></table>|0|💚🥳|
 | [Bounty Issues](https://github.com/priyakewlani18/demoGithub/issues?q=is%3Aissue+is%3Aopen+label%3ABounty) |    | `Bounty` | 5|<table><thead><tr><th >week</th><th >issues_opened_count</th></tr></thead> <tbody><tr><td >This Week</td><td >1</td></tr><tr><td >Last Week</td><td >1</td></tr><tr><td >Last Week Ago</td><td >2</td></tr></tbody></table>|1|💚🥳|
+### undefined
+| Section Title | description | Labels | Threshold | Weekly Count | Totals Open Now since Oct 2022 | Status|
+| :--- |  :----: | :----: |  :----:  |  :----:  |  :----: | :----: 
+| [Medium Security Issues](https://github.com/priyakewlani18/demoGithub/issues?q=is%3Aissue+is%3Aopen+label%3AIncident) | All Medium Security Issues   | `Incident` | 5|<table><thead><tr><th >week</th><th >issues_opened_count</th></tr></thead> <tbody><tr><td >This Week</td><td >0</td></tr><tr><td >Last Week</td><td >0</td></tr><tr><td >Last Week Ago</td><td >2</td></tr></tbody></table>|0|💚🥳|
+### undefined
+| Section Title | description | Labels | Threshold | Weekly Count | Totals Open Now since Oct 2022 | Status|
+| :--- |  :----: | :----: |  :----:  |  :----:  |  :----: | :----: 
