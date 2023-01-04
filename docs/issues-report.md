@@ -5,6 +5,7 @@ The table below shows data for the last few weeks and open count since Oct'22 ,T
 | :--- |  :----: | :----: |  :----:  |  :----:  |  :----: | :----: 
 | [Security Issues](https://github.com/priyakewlani18/demoGithub/issues?q=is%3Aissue+is%3Aopen+label%3AActive) | All High Security Issues   | `Active` | 2|<table><thead><tr><th >week</th><th >total_open_count_till</th></tr></thead> <tbody><tr><td >This Week</td><td >0</td></tr><tr><td >Last Week</td><td >0</td></tr><tr><td >Two Weeks Ago</td><td >0</td></tr></tbody></table>|0|💚🥳|
 | [Bounty Issues](https://github.com/priyakewlani18/demoGithub/issues?q=is%3Aissue+is%3Aopen+label%3ABounty) |    | `Bounty` | 5|<table><thead><tr><th >week</th><th >total_open_count_till</th></tr></thead> <tbody><tr><td >This Week</td><td >1</td></tr><tr><td >Last Week</td><td >1</td></tr><tr><td >Two Weeks Ago</td><td >1</td></tr></tbody></table>|1|💚🥳|
+| [other repo Issues](https://github.com/priyakewlani18/demoGithub/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation) |    | `documentation` | 5|<table><thead><tr><th >week</th><th >total_open_count_till</th></tr></thead> <tbody><tr><td >This Week</td><td >0</td></tr><tr><td >Last Week</td><td >0</td></tr><tr><td >Two Weeks Ago</td><td >0</td></tr></tbody></table>|0|💚🥳|
 ### Incident Summary
 | Section Title | description | Labels | Threshold | Weekly Count | Totals Open Now since Oct 2022 | Status|
 | :--- |  :----: | :----: |  :----:  |  :----:  |  :----: | :----: 
