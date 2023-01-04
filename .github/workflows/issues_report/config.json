@@ -27,6 +27,6 @@
       "labels": ["documentation"],
       "threshold": 5,
       "months": 4,
-      "tableIndex" : 1,
+      "tableIndex" : 1
      }
 ]
