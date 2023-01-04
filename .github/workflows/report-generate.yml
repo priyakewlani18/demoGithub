@@ -26,6 +26,7 @@ jobs:
         tableConfigPath: '.github/workflows/issues_report/table-config.json'
         outputPath: ${{ env.OUTPUT_INCIDENT_FILE_NAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
+        remoteRepoToken: ${{ secrets.OTHER_REPO }}
         tableCount: '2'
 
     - name: "Commit if any changes were made"
