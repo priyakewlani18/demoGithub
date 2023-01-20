@@ -1,0 +1,7 @@
+		name: "on-call-weekly-datadog-dashboard"
+		on:
+			issues:
+				types: [opened]
+				if: >-
+					contains(github.event.issue.labels.*.name, 'Incident')
+			
