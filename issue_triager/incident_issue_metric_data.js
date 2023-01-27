@@ -1,0 +1,49 @@
+const { Octokit } = require('@octokit/rest');
+
+async function getIssuesWithLabelsAndDateRange (octokit, owner, repo, labels, startDate, endDate) {
+return await octokit.paginate(
+        // There's a bug in the Octokit type declaration for `paginate`.
+        // It won't let you use the endpoint method as documented: https://octokit.github.io/rest.js/v17#pagination.
+        // Work around by using the route string instead.
+        //octokit.issues.listForRepo,
+        "GET /repos/:owner/:repo/issues",
+        {
+            owner,
+            repo,
+            labels: labels.join(','),  
+        },(response) => response.data.filter(issue => issue.created_at >=startDate && issue.created_at <= endDate));      
+}
+
+async function run () {
+ 
+ OWNER = process.env.OWNER;
+ REPO = process.env.REPO;
+ const octokit = new Octokit({
+    auth:process.env.PROJECT_TOKEN,
+    previews:['inertia-preview']
+    });
+ 
+ var startOfDay = new Date();                    
+ startOfDay.setDate(startOfDay.getDate() - 1);
+ startOfDay.setUTCHours(0, 0, 0, 0);
+	
+
+ var endOfDay = startOfDay;
+ endOfDay.setUTCHours(23, 59, 59, 999);
+ const issue = await getIssue(octokit, OWNER, REPO, "Incident", startOfDay, endOfDay);
+ 
+ return issue.length;
+    
+}
+
+
+
+(async () => {
+  try {
+    await run();
+  }
+  catch (e) {
+    console.error(e);
+    process.exit(1);
+  }
+})();
