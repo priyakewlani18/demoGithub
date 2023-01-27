@@ -24,14 +24,13 @@ async function run () {
     });
  
  var startOfDay = new Date();                    
- startOfDay.setDate(startOfDay.getDate() - 1);
+ startOfDay.setDate(startOfDay.getDate());
  startOfDay.setUTCHours(0, 0, 0, 0);
 	
 
  var endOfDay = startOfDay;
  endOfDay.setUTCHours(23, 59, 59, 999);
  const issue = await getIssue(octokit, OWNER, REPO, "Incident", startOfDay, endOfDay);
- 
  return issue.length;
     
 }
