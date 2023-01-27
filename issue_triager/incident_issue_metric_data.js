@@ -1,6 +1,6 @@
 const { Octokit } = require('@octokit/rest');
 
-async function getIssuesWithLabelsAndDateRange (octokit, owner, repo, labels, startDate, endDate) {
+async function getIssuesWithLabelsAndDateRange (octokit, owner, repo, labels, date, endDate) {
 return await octokit.paginate(
         // There's a bug in the Octokit type declaration for `paginate`.
         // It won't let you use the endpoint method as documented: https://octokit.github.io/rest.js/v17#pagination.
@@ -11,7 +11,7 @@ return await octokit.paginate(
             owner,
             repo,
             labels: labels.join(','),  
-        },(response) => response.data.filter(issue => issue.created_at >=startDate));      
+        },(response) => response.data.filter(issue => issue.created_at >=date));      
 }
 
 async function run () {
