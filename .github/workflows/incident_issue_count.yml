@@ -3,6 +3,9 @@ on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch: 
+env:
+    DEBUG: true
+    PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
 jobs:
   build:
@@ -19,10 +22,6 @@ jobs:
       id: incident-count
       run: |
         echo "INCIDENT_COUNT_VALUE=$(node issue_triager/incident_issue_metric_data.js $GITHUB_CONTEXT )">> $GITHUB_OUTPUT
-      env:
-        DEBUG: true
-        PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 
     - name: Get incident count value
         run:|
