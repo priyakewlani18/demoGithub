@@ -8,7 +8,7 @@ env:
     PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
 jobs:
-  build:
+  Get-Incident-Count:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -25,3 +25,10 @@ jobs:
     - name: display string
       run: |
         echo "The string is: ${{ steps.incident-count.outputs.display string }}"
+  
+  report-datadog:
+    name: 'Report to DataDog'
+    runs-on: ubuntu-20.04
+    needs: Get-Incident-Count
+    steps:
+      - run: echo ${{needs.Get-Incident-Count.outputs.INCIDENT_COUNT_VALUE}}
