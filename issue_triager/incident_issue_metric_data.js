@@ -32,7 +32,7 @@ async function run () {
  var endOfDay = startOfDay;
  endOfDay.setUTCHours(23, 59, 59, 999);
  const issue = await getIssuesWithLabelsAndDateRange(octokit, OWNER, REPO, ["Incident"], startOfDay, endOfDay);
- console.log("issue Created value is", issue.created_at)   
+ console.log("issue Created value is", issue[0].created_at)   
  console.log("issue length is", issue.length);
  return issue.length;
     
