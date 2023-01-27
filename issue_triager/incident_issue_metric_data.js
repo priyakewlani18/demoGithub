@@ -11,7 +11,7 @@ return await octokit.paginate(
             owner,
             repo,
             labels: labels.join(','),  
-        });      
+        },(response) => response.data.filter(issue => issue.created_at >=startDate && issue.created_at <= endDate));
 }
 
 async function run () {
@@ -31,8 +31,8 @@ async function run () {
 
  var endOfDay = startOfDay;
  endOfDay.setUTCHours(23, 59, 59, 999);
- const issue = await getIssuesWithLabelsAndDateRange(octokit, OWNER, REPO, ["Incident"], startOfDay, endOfDay);
- console.log("issue Created value is", issue[0].created_at)   
+ const issue = await getIssuesWithLabelsAndDateRange(octokit, OWNER, REPO, ["Incident"], JSON.stringify(startOfDay), JSON.stringify(endOfDay));
+
  console.log("issue length is", issue.length);
  return issue.length;
     
