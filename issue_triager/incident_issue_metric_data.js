@@ -16,8 +16,8 @@ return await octokit.paginate(
 
 async function run () {
  
- OWNER = process.env.OWNER;
- REPO = process.env.REPO;
+ OWNER = "priyakewlani18";
+ REPO = "demoGithub";
  const octokit = new Octokit({
     auth:process.env.PROJECT_TOKEN,
     previews:['inertia-preview']
