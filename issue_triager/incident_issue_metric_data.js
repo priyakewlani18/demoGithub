@@ -11,7 +11,7 @@ return await octokit.paginate(
             owner,
             repo,
             labels: labels.join(','),  
-        });      
+        },(response) => response.data.filter(issue => issue.created_at >= startDate));      
 }
 
 async function run () {
