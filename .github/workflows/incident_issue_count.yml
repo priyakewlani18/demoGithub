@@ -22,7 +22,8 @@ jobs:
       env:
         DEBUG: true
         PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-		
+
+
     - name: Get incident count value
         run:|
           echo "The string is:${{ steps.incident-count.outputs.INCIDENT_COUNT_VALUE }}"
