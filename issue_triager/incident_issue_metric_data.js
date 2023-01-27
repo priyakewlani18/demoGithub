@@ -30,7 +30,7 @@ async function run () {
 
  var endOfDay = startOfDay;
  endOfDay.setUTCHours(23, 59, 59, 999);
- const issue = await getIssuesWithLabelsAndDateRange(octokit, OWNER, REPO, "Incident", startOfDay, endOfDay);
+ const issue = await getIssuesWithLabelsAndDateRange(octokit, OWNER, REPO, ["Incident"], startOfDay, endOfDay);
  return issue.length;
     
 }
