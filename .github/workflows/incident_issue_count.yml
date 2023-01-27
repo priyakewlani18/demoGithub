@@ -24,5 +24,5 @@ jobs:
         echo "INCIDENT_COUNT_VALUE=$(node issue_triager/incident_issue_metric_data.js $GITHUB_CONTEXT )">> $GITHUB_OUTPUT
 
     - name: Get incident count value
-        run:|
+      run: |
           echo "The string is:${{ steps.incident-count.outputs.INCIDENT_COUNT_VALUE }}"
