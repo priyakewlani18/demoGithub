@@ -21,7 +21,7 @@ jobs:
     - name: Get incident count value
       id: incident-count
       run: |
-        echo "$(node issue_triager/incident_issue_metric_data.js)"
+         echo "INCIDENT_COUNT_VALUE=$(node issue_triager/incident_issue_metric_data.js)">> $GITHUB_OUTPUT
   
   report-datadog:
     name: 'Report to DataDog'
