@@ -25,17 +25,19 @@ async function run () {
  
  var startOfDay = new Date();                    
  startOfDay.setDate(startOfDay.getDate());
- startOfDay.setUTCHours(0, 0, 0, 0);
-
+ startOfDay.setUTCHours(0,0,0,0);
+ 
+ startOfDay = JSON.stringify(startOfDay).split('.')[0].split('"')[1]
  console.log("start of Day value is", startOfDay );
 
- var endOfDay = startOfDay;
+ var endOfDay = new Date(); 
  endOfDay.setUTCHours(23, 59, 59, 999);
- const issue = await getIssuesWithLabelsAndDateRange(octokit, OWNER, REPO, ["Incident"], JSON.stringify(startOfDay), JSON.stringify(endOfDay));
+ endOfDay = JSON.stringify(endOfDay).split('.')[0].split('"')[1]
+        
+ const issue = await getIssuesWithLabelsAndDateRange(octokit, OWNER, REPO, ["Incident"], startOfDay, endOfDay);
 
  console.log("issue length is", issue.length);
  return issue.length;
-    
 }
 
 
