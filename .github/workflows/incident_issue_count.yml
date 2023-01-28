@@ -8,7 +8,7 @@ env:
     PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
 jobs:
-  Get-Incident-Count:
+  get-incident-count:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -22,10 +22,13 @@ jobs:
       id: incident-count
       run: |
          echo "INCIDENT_COUNT_VALUE=$(node issue_triager/incident_issue_metric_data.js)">> $GITHUB_OUTPUT
+     
+    outputs:
+      INCIDENT_COUNT_VALUE: ${{ steps.incident-count.outputs.start_time_ms.INCIDENT_COUNT_VALUE }}
   
   report-datadog:
     name: 'Report to DataDog'
     runs-on: ubuntu-20.04
-    needs: Get-Incident-Count
+    needs: get-incident-count
     steps:
-      - run: echo ${{needs.Get-Incident-Count.outputs.INCIDENT_COUNT_VALUE}}
+      - run: echo ${{needs.get-incident-count.outputs.INCIDENT_COUNT_VALUE}}
