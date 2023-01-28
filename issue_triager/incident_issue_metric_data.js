@@ -28,14 +28,13 @@ async function run () {
  startOfDay.setUTCHours(0,0,0,0);
  
  startOfDay = JSON.stringify(startOfDay).split('.')[0].split('"')[1]
- console.log("start of Day value is", startOfDay );
-
+ 
  var endOfDay = new Date(); 
  endOfDay.setUTCHours(23, 59, 59, 999);
  endOfDay = JSON.stringify(endOfDay).split('.')[0].split('"')[1]
         
  const issue = await getIssuesWithLabelsAndDateRange(octokit, OWNER, REPO, ["Incident"], startOfDay, endOfDay);
- return issue.length;
+ console.log(issue.length);
 }
 
 
