@@ -24,7 +24,7 @@ jobs:
          echo "INCIDENT_COUNT_VALUE=$(node issue_triager/incident_issue_metric_data.js)">> $GITHUB_OUTPUT
      
     outputs:
-      INCIDENT_COUNT_VALUE: ${{ steps.incident-count.outputs.start_time_ms.INCIDENT_COUNT_VALUE }}
+      INCIDENT_COUNT_VALUE: ${{ steps.incident-count.outputs.INCIDENT_COUNT_VALUE }}
   
   report-datadog:
     name: 'Report to DataDog'
