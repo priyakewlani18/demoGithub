@@ -19,7 +19,7 @@ jobs:
       uses: peter-evans/find-comment@v2
       id: fc
       with:
-        issue-number: 6
+        issue-number: 11
         comment-author: priyakewlani18
         
     - name: print comment
