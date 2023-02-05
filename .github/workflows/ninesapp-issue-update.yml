@@ -19,8 +19,8 @@ jobs:
       uses: peter-evans/find-comment@v2
       id: fc
       with:
-        issue-number: '10'
-        comment-author: 'priyakewlani18'
+        issue-number: 10
+        comment-author: priyakewlani18
         body-includes: Triggered
 
     - name: Update comment
