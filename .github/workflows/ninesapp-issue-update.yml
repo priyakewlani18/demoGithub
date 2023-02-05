@@ -22,6 +22,10 @@ jobs:
         issue-number: 10
         comment-author: priyakewlani18
         body-includes: Triggered
+        
+    - name: print comment
+      run:
+         echo "${{ steps.fc.outputs.comment-id }} "
 
     - name: Update comment
       if: steps.fc.outputs.comment-id != ''
