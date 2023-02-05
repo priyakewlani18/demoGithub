@@ -16,9 +16,6 @@ jobs:
           labels: "Incident, datadog"
           title: "Incident issue"
           body: |
-_Please fill this incident review out by following the guidance here [Incident Review Checklist](https://github.com/github/availability/blob/master/guides/incident-review-checklist.md). You can optionally read [GitHub's Incident Reponse Process](https://thehub.github.com/epd/engineering/incident-response/incident-response-process/) and refer to sample incident issues - 
-
-
 ### Executive Summary
 
 This should be written in such a way that someone completely unfamiliar with our environment can read and understand. The first paragraph of this section should be able to summarize the event to senior leadership.
