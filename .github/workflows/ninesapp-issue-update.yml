@@ -20,8 +20,6 @@ jobs:
       id: fc
       with:
         issue-number: 10
-        comment-author: priyakewlani18
-        body-includes: Triggered
         
     - name: print comment
       run:
