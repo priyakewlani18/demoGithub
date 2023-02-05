@@ -15,15 +15,20 @@ jobs:
     #if: contains(github.event.issue.user.login, 'priyakewlani18')
     runs-on: ubuntu-latest
     steps:
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          issue-number: 1
-          body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown** :sparkles:
-            - Created by [create-or-update-comment][1]
+    - name: Find Comment
+      uses: peter-evans/find-comment@v2
+      id: fc
+      with:
+        issue-number: '10'
+        comment-author: 'priyakewlani18'
+        body-includes: "[Triggered]"
 
-            [1]: https://github.com/peter-evans/create-or-update-comment
-          reactions: '+1'
+    - name: Update comment
+      if: steps.fc.outputs.comment-id != ''
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        comment-id: ${{ steps.fc.outputs.comment-id }}
+        body: |
+          This comment has been updated!
+        reactions: hooray
 
