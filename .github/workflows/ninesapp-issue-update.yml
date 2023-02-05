@@ -20,6 +20,7 @@ jobs:
       id: fc
       with:
         issue-number: 10
+        comment-author: priyakewlani18
         
     - name: print comment
       run:
