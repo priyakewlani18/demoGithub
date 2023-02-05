@@ -16,126 +16,17 @@ jobs:
           labels: "Incident, datadog"
           title: "Incident issue"
           body: |
-### Executive Summary
+            ### Agenda
 
-This should be written in such a way that someone completely unfamiliar with our environment can read and understand. The first paragraph of this section should be able to summarize the event to senior leadership.
+            - [ ] Start the recording
+            - [ ] Check-ins
+            - [ ] Discussion points
+            - [ ] Post the recording
+                    
+            ### Discussion Points
+            Add things to discuss below
 
-### When did the impact start (UTC)
-
-YYYY-MM-DD HH:mm
-
-### When did we detect the incident (UTC)
-
-YYYY-MM-DD HH:mm
-
-### When was the incident resolved (UTC)
-
-YYYY-MM-DD HH:mm
-
-**Note:** This is a compulsion to add `impact start time`, `detect time`, and `resolved time` in the desired utc format. please check the correct format of time in the [sample issue](https://github.com/github/npm/issues/7082).
-
-###  List any other services or infrastructure were impacted by this incident. What services were impacted?
-
-**Website**
-- [ ] General ( landing page/ package etc. ) (`website:general`)
-- [ ] Login (`website:login`)
-- [ ] Search (`website:search`)
-- [ ] Support (`website:support`)
-
-**Registry** 
-- [ ] Publish (`registry:publish`)
-- [ ] Install (`registry:install`)
-- [ ] Search (`registry:search`)
-- [ ] Login/Auth (`registry:login/auth`)
-- [ ] Recovery (`registry:recovery`)
-
-**Others**:
-
-### Was this incident internal or external?
-
-- [ ] The incident was visible to npm users (`impact:external`)
-- [ ] The incident was ONLY visible internally (`impact:internal`)
-
-### If the incident was external, please list any affected customers below.
-
-Affected customers:
-
-### What was the most significant status for any service during the incident?
-
-- [ ] Green indicating service is healthy
-- [ ] Yellow indicating degraded service (`impact:yellow`)
-- [ ] Red indicating service outage (`impact:red`)
-
-### We use SLOs to determine when we should be statusing, were any SLOs breached during this incident?
-
-- [ ] Yes (`impact:slo`)
-- [ ] No
-
-### If yes, please list them below.
-
-Go to each affected service in the [Service Catalog]([https://catalog.githubapp.com](https://catalog.githubapp.com/services/npm/slos)) and list any breached SLOs in the format <service_name>/<slo_name>.
-
-### How was the incident created?  
-
-<!-- Automated PagerDuty/ manually identified by customers -->
-- [ ] Issue was manually identified (`manual-incident-reported`)
-
-### How did we respond to the incident?
-
-This does not need to be a minute by minute breakdown, but please include information about what teams were involved (automatically or manually), any notable events that happened, or any complications with the incident process itself. Please ensure any times that are mentioned are in UTC.
-
-### Root cause analysis (5 whys) 
-- Use the "[5 Whys](https://tulip.co/glossary/five-whys/)" to dig into the outage and ensure you have a reasonable root cause and can explain:
-  - Why an incident happened.
-  - Why it will not happen again (or if it will, how would we stop it).
-  - How we could have mitigated or discovered the issue more quickly that we did.
-
-### Infrastructure
-
-- [ ] Infrastructure related (`cause:infrastructure`)
-
-### Application
-
-- [ ] Newly introduced bug (`cause:application-bug`)
-- [ ] A gap in testing (`cause:testing-gap`)
-- [ ] Lack of rate limiting (`cause:rate-limits`)
-- [ ] Incorrect configuration of system or third-party service (`cause:configuration`)
-- [ ] Bug in non-npm code (`cause:dependency-bug`)
-- [ ] Database replication issue (`cause:replication`)
-- [ ] Gap in observability systems and dashboards (`cause:observability-confidence`)
-- [ ] Performance tuning/improvements/utilization (`cause:performance`)
-- [ ] Alerting did not automatically detect the incident (`cause:alerting-insufficient`)
-
-### Security
-
-- [ ] Denial of service attack (`cause:ddos`)
-- [ ] An attack against npm hosted resources (`cause:attack`)
-- [ ] Unusual usage patterns without obvious malicious intent (`cause:abuse`)
-- [ ] Too broad authorization or permissions (`cause:authorization`)
-
-### Others
-
-- [ ] There was an open issue highlighting the risk when the incident happened (`cause:known-issue`)
-- [ ] A bug in 3rd party service such as Cloudflare, AWS, Azure, etc (`cause:third-party-service`)
-- [ ] The event was not triggered by failure or user traffic but some action under our control (`cause:self-inflicted`)
-
-### Please provide details for each of the contributing factors selected above:
-
-This can either be a technical or process issue, eg 'A 3rd party DNS service failed' or 'our testing did not catch a bug'
-
-### Action Items
-
-**Important:** All actions items below should include a link to a GitHub issue as we use this to track action items. Please also make sure all the related repair items are captured here.
-
-- [ ] _Action item 1_
-- [ ] _Action item 2_
-
-### Has this or a similar incident happened in the past?
-
-- [ ] Yes (`category:repeat`)
-- [ ] No (`category:new`)
-
-### If yes, please link to the previous incidents below
+            - [Work this week](https://github.com/orgs/github/projects/3)
 
           pinned: false
           close-previous: false
