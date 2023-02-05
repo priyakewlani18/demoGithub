@@ -21,7 +21,7 @@ jobs:
       with:
         issue-number: '10'
         comment-author: 'priyakewlani18'
-        body-includes: "[Triggered]"
+        body-includes: Triggered
 
     - name: Update comment
       if: steps.fc.outputs.comment-id != ''
