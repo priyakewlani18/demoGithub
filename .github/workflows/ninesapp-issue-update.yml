@@ -1,0 +1,33 @@
+name: Ninesapp Alert Issue Update
+
+on:
+  issues:
+    types: [opened] 
+
+env:
+  OWNER: priyakewlani18
+  REPO: demoGithub
+  
+
+jobs:
+  build:
+    if: contains(github.event.issue.user.login, 'priyakewlani18')
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        #cache: 'npm'
+    - run: npm install
+      
+    - name: Check incident time value
+      id: time-checker
+      run: |
+        echo "$(node issue_triager/incident_issue_time_check.js $GITHUB_CONTEXT )"
+        echo "TIME_VALUE=$(node issue_triager/incident_issue_time_check.js $GITHUB_CONTEXT )">> $GITHUB_OUTPUT
+      env:
+        DEBUG: true
+        PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_CONTEXT: ${{ github.event.issue.number }}
+
