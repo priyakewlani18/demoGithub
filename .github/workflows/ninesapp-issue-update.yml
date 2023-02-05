@@ -1,8 +1,7 @@
-
 on:
-  workflow_dispatch
+ workflow_dispatch:
 
-name: Extract template fields
+name: Create scheduled issue from template
 
 jobs:
   build:
@@ -15,8 +14,10 @@ jobs:
       with:
         path: .github/ISSUE_TEMPLATE/incident.md
 
-    # Log outputs of previous step
-    - run: |-
-        echo  $BODY
-      env:
-        BODY: ${{ steps.extract.outputs.body }}
+    # Create new issue with assignees, labels, title, and body
+    - uses: imjohnbo/issue-bot@v3
+      with:
+        assignees: 'priyakewlani18'
+        labels: ${{ steps.extract.outputs.labels }}
+        title: 'Incident Issue'
+        body: ${{ steps.extract.outputs.body }}
