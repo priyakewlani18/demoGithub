@@ -20,8 +20,7 @@ jobs:
         
     - name: define assignees
       run: |
-          dataLength = jq length ${{github.event.issue.assignees}}
-          echo "$dataLength"
+       echo " {{  github.event.issue.assignees[0] }} | jq - '.login'"
 
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
