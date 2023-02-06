@@ -20,7 +20,7 @@ jobs:
         
     - name: define assignees
       run: |
-          echo "${{  github.event.issue.assignees.length }}"
+          echo "${{  github.event.issue.assignees.length() }}"
 
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
