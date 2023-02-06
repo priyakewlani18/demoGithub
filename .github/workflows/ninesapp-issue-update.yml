@@ -22,6 +22,6 @@ jobs:
     - uses: imjohnbo/issue-bot@v3
       with:
         assignees: "priyakewlani18, priyakewlani"
-        labels: ${{  github.event.issue.labels[0].name }}
+        labels: "Incident, Documentation"
         title: ${{  github.event.issue.title }} - Incident
         body: ${{ steps.extract.outputs.body }}
