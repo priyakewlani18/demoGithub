@@ -20,7 +20,7 @@ jobs:
         
     - name: define assignees
       run: |
-          echo jq -r '.assignees[]' ${{  github.event.issue }}
+          echo "jq -r '.assignees[].login' ${{  github.event.issue }}"
 
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
