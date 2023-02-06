@@ -23,7 +23,9 @@ jobs:
     - name: define assignees
       id: issue_assignees
       run: |
-         ASSIGNEES=$(echo "${JSON}" | jq -r '.assignees[].login')   
+         ASSIGNEES=$(echo "${JSON}" | jq -r '.assignees[].login')
+         ASSIGNEES="${ASSIGNEES//$'\n'/'%0A'}"
+
          echo "::set-output name=names::$ASSIGNEES"
          
     
