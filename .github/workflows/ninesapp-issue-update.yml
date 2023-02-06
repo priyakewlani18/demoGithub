@@ -20,7 +20,7 @@ jobs:
         
     - name: define assignees
       run: |
-        data = $( echo "${{toJson(github)}}" | jq -r '.event.issue.assignees[].login')
+        data = $(echo "${{toJson(github.event.issue.assignees[])}}" | jq -r '.login')
         echo "data is $data"
 
 
