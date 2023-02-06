@@ -36,7 +36,7 @@ jobs:
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
       with:
-        assignees: "echo ${{ steps.issue_assignees.outputs.names }}"
+        assignees: "${{ steps.issue_assignees.outputs.names }}"
         labels: "Incident, Documentation"
         title: ${{  github.event.issue.title }} - Incident
         body: ${{ steps.extract.outputs.body }}
