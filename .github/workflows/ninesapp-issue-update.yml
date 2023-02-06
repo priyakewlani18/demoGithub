@@ -17,6 +17,13 @@ jobs:
       id: extract
       with:
         path: .github/ISSUE_TEMPLATE/incident.md
+        
+    - name: define assignees
+      run: |
+        for i in ${!github.event.issue.assignees[@]}; do
+          mybashvariable="$mybashvariable, ${myArray.login[$i]}"
+        done
+        echo "$mybashvariable"
 
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
