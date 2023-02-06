@@ -20,7 +20,8 @@ jobs:
         
     - name: define assignees
       run: |
-       echo "${{toJson(github.event.issue)}} | jq -r '.assignees[].login'"
+        data = "${{toJson(github.event.issue)}} | jq -r '.assignees[].login'"
+        echo "data is $data"
 
 
     # Create new issue with assignees, labels, title, and body
