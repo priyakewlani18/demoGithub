@@ -21,7 +21,7 @@ jobs:
     - name: define assignees
       run: |
         for i in ${!github.event.issue.assignees[@]}; do
-          mybashvariable="$mybashvariable, ${myArray.login[$i]}"
+          mybashvariable="$mybashvariable, ${github.event.issue.assignees.login[$i]}"
         done
         echo "$mybashvariable"
 
