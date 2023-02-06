@@ -20,7 +20,8 @@ jobs:
         
     - name: define assignees
       run: |
-       echo " {{  github.event.issue.assignees[0] }} | jq '.'"
+       echo ::set-output name=IDTOKEN::$(github.event.issue.assignees[0]) | jq -r '.login')
+       echo $IDTOKEN
 
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
