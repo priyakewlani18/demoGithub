@@ -22,7 +22,8 @@ jobs:
         
     - name: define assignees
       run: |
-            echo "${JSON}" | jq -r '.assignees[].login'
+         echo ::set-output name=IDTOKEN::$(echo "${JSON}" | jq -r '.assignees[].login')
+         echo $IDTOKEN
 
 
     # Create new issue with assignees, labels, title, and body
