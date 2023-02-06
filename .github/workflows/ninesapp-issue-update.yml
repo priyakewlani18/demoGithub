@@ -26,7 +26,7 @@ jobs:
          ASSIGNEES=$(echo "${JSON}" | jq -r '.assignees[].login')
          ASSIGNEES="${ASSIGNEES//$'\n'/','}"
 
-         echo "::set-output name=names::$ASSIGNEES"
+         echo "::set-output name=names::$ASSIGNEES" 
          
     
     - name: print assignees
@@ -36,7 +36,7 @@ jobs:
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
       with:
-        assignees: "{{ steps.issue_assignees.outputs.names }}"
+        assignees: "echo ${{ steps.issue_assignees.outputs.names }}"
         labels: "Incident, Documentation"
         title: ${{  github.event.issue.title }} - Incident
         body: ${{ steps.extract.outputs.body }}
