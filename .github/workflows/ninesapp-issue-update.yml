@@ -21,7 +21,7 @@ jobs:
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
       with:
-        assignees: 'priyakewlani18, dwivedine'
+        assignees: "priyakewlani18, dwivedine"
         labels: ${{  github.event.issue.labels[0].name }}
         title: ${{  github.event.issue.title }} - Incident
         body: ${{ steps.extract.outputs.body }}
