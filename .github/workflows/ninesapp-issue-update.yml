@@ -20,10 +20,7 @@ jobs:
         
     - name: define assignees
       run: |
-        for i in ${!github.event.issue.assignees[@]}; do
-          mybashvariable="$mybashvariable, ${github.event.issue.assignees.login[$i]}"
-        done
-        echo "$mybashvariable"
+          echo jq -r '.assignees[]' ${{  github.event.issue }}
 
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
