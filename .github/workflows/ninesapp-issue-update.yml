@@ -21,11 +21,14 @@ jobs:
         path: .github/ISSUE_TEMPLATE/incident.md
         
     - name: define assignees
+      id: issue_assignees
       run: |
-         echo ::set-output name=IDTOKEN::$(echo "${JSON}" | jq -r '.assignees[].login')
-         echo $IDTOKEN
+         echo "names=$(echo "${JSON}" | jq -r '.assignees[].login')" >> $GITHUB_OUTPUT
+         
+    - name: print assignees
+      run: echo ${{ steps.issue_assignees.outputs.names }}
 
-
+ 
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
       with:
