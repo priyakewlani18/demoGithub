@@ -28,15 +28,18 @@ jobs:
 
          echo "::set-output name=names::$ASSIGNEES" 
          
-    
-    - name: print assignees
-      run: echo ${{ steps.issue_assignees.outputs.names }}
+    - name: define labels
+      id: issue_labels
+      run: |
+         LABELS=$(echo "${JSON}" | jq -r '.labels[].name')
+         LABELS="${LABELS//$'\n'/','}"
 
+         echo "::set-output name=names::$LABELS" 
  
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
       with:
         assignees: "${{ steps.issue_assignees.outputs.names }}"
-        labels: "Incident, Documentation"
+        labels: "${{ steps.issue_labels.outputs.names }}"
         title: ${{  github.event.issue.title }} - Incident
         body: ${{ steps.extract.outputs.body }}
