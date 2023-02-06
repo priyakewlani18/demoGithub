@@ -20,8 +20,8 @@ jobs:
         
     - name: define assignees
       run: |
-       echo ::set-output name=IDTOKEN::${{toJson(github.event.issue)}} | jq -r '.assignees[].login'
-       echo $IDTOKEN
+       echo "${{toJson(github.event.issue)}} | jq -r '.assignees[].login'"
+
 
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@v3
