@@ -23,5 +23,5 @@ jobs:
       with:
         assignees: ${{ github.event.issue.assignees.login }}
         labels: ${{  github.event.issue.labels.name }}
-        title: ${{  github.event.issue.title }} + '- Incident'
+        title: ${{  github.event.issue.title }} '- Incident'
         body: ${{ steps.extract.outputs.body }}
