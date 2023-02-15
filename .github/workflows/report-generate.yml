@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: checkThisOrg/issue-reporter-repo@main
+    - uses: test-org-kewlani/issue-reporter-repo@main
       with:
         title: 'npm incident scorecard New'
         configPath: '.github/workflows/issues_report/config.json'
