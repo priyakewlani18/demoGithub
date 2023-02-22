@@ -34,7 +34,7 @@ async function run () {
  endOfDay = JSON.stringify(endOfDay).split('.')[0].split('"')[1]
         
  const issue = await getIssuesWithLabelsAndDateRange(octokit, OWNER, REPO, ["Incident"], startOfDay, endOfDay);
- console.log(issue.length);
+ console.log("issue data",issue.length);
 }
 
 
